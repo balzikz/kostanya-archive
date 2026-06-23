@@ -45,56 +45,88 @@
     <section class="page-hero section reveal">
       <p class="eyebrow">Люди Костании</p>
       <h1>Игроки</h1>
-      <p>Первый состав цифрового архива: руководство, командование, ветераны, PvP-игроки и участники, развивающие Костанию.</p>
+      <p>Состав Костании, разделённый по положению, обязанностям и направлениям деятельности.</p>
     </section>
 
     <section class="section section-tight">
       <div class="roster-intro reveal">
         <div>
-          <p class="eyebrow">Первый состав</p>
+          <p class="eyebrow">Состав архива</p>
           <h2>Профили участников</h2>
-          <p>Карточки будут постепенно дополняться датами вступления, достижениями, цитатами, связанными событиями и архивными материалами.</p>
+          <p>Каждый скин теперь собирается в интерактивную трёхмерную модель. Модель можно поворачивать пальцем или мышью.</p>
         </div>
         <div class="roster-count"><strong>7</strong><span>профилей</span></div>
       </div>
 
-      <section class="roster-section">
+      <section class="roster-section roster-section--high-command">
         <div class="roster-section-heading reveal">
-          <h2>Руководство и командование</h2>
-          <span>4 участника</span>
+          <div>
+            <p class="eyebrow">Высший состав</p>
+            <h2>Руководство Костании</h2>
+          </div>
+          <span>3 участника</span>
         </div>
 
         <div class="player-roster-grid">
           <article class="player-profile-card player-profile-card--leader reveal">
             <div class="player-skin-stage">
               <span class="player-card-number">01</span>
-              <img src="assets/players/daryn.png" alt="Скин Дарына" loading="lazy">
+              <canvas class="skin-viewer" data-skin="assets/players/daryn.png" aria-label="Трёхмерная модель скина Дарына"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
             </div>
             <div class="player-profile-content">
-              <span class="player-rank player-rank--red">Основатель</span>
+              <span class="player-rank player-rank--red">Основатель и глава</span>
               <h3>Дарын</h3>
               <p>Создатель и глава Костании. Определяет направление развития клана и связывает его основные эпохи.</p>
-              <div class="player-tags"><span>Лидер клана</span><span>Основатель</span><span>Командование</span></div>
+              <div class="player-tags"><span>Лидер клана</span><span>Основатель</span><span>Высший состав</span></div>
             </div>
           </article>
 
-          <article class="player-profile-card reveal">
+          <article class="player-profile-card player-profile-card--tech reveal">
             <div class="player-skin-stage">
               <span class="player-card-number">02</span>
-              <img src="assets/players/isko.png" alt="Скин Иско" loading="lazy">
+              <canvas class="skin-viewer" data-skin="assets/players/balzikz.png" aria-label="Трёхмерная модель скина Балзика"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
+            </div>
+            <div class="player-profile-content">
+              <span class="player-rank">Технический администратор</span>
+              <h3>Балзик</h3>
+              <p>Технический администратор Костании, стоящий в составе сразу после Дарына. Создатель цифрового архива клана.</p>
+              <div class="player-tags"><span>Техадмин</span><span>Высший состав</span><span>Архив</span></div>
+            </div>
+          </article>
+
+          <article class="player-profile-card player-profile-card--marshal reveal">
+            <div class="player-skin-stage">
+              <span class="player-card-number">03</span>
+              <canvas class="skin-viewer" data-skin="assets/players/isko.png" aria-label="Трёхмерная модель скина Иско"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
             </div>
             <div class="player-profile-content">
               <span class="player-rank">Фельдмаршал</span>
               <h3>Иско</h3>
-              <p>Левая рука Дарына и один из ключевых представителей высшего командования Костании.</p>
-              <div class="player-tags"><span>Фельдмаршал</span><span>Штаб</span><span>Командование</span></div>
+              <p>Левая рука Дарына, фельдмаршал и один из трёх участников высшего состава Костании.</p>
+              <div class="player-tags"><span>Фельдмаршал</span><span>Высший состав</span><span>Командование</span></div>
             </div>
           </article>
+        </div>
+      </section>
 
+      <section class="roster-section">
+        <div class="roster-section-heading reveal">
+          <div>
+            <p class="eyebrow">Администрация</p>
+            <h2>Старшие администраторы</h2>
+          </div>
+          <span>1 участник</span>
+        </div>
+
+        <div class="player-roster-grid player-roster-grid--single">
           <article class="player-profile-card reveal">
             <div class="player-skin-stage">
-              <span class="player-card-number">03</span>
-              <img src="assets/players/zhiger.png" alt="Скин Жигера" loading="lazy">
+              <span class="player-card-number">04</span>
+              <canvas class="skin-viewer" data-skin="assets/players/zhiger.png" aria-label="Трёхмерная модель скина Жигера"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
             </div>
             <div class="player-profile-content">
               <span class="player-rank">Старший администратор</span>
@@ -103,25 +135,15 @@
               <div class="player-tags"><span>Администрация</span><span>Ветеран</span><span>Управление</span></div>
             </div>
           </article>
-
-          <article class="player-profile-card reveal">
-            <div class="player-skin-stage">
-              <span class="player-card-number">04</span>
-              <img src="assets/players/gytgsank.png" alt="Скин Гутсанга" loading="lazy">
-            </div>
-            <div class="player-profile-content">
-              <span class="player-rank">Генерал армии</span>
-              <h3>Гутсанг</h3>
-              <p>Генерал армии Костании и представитель высшего военного командования клана.</p>
-              <div class="player-tags"><span>Генерал армии</span><span>Штаб</span><span>Командование</span></div>
-            </div>
-          </article>
         </div>
       </section>
 
       <section class="roster-section">
         <div class="roster-section-heading reveal">
-          <h2>Боевой состав и участники</h2>
+          <div>
+            <p class="eyebrow">Военное направление</p>
+            <h2>Командование и боевой состав</h2>
+          </div>
           <span>3 участника</span>
         </div>
 
@@ -129,45 +151,48 @@
           <article class="player-profile-card reveal">
             <div class="player-skin-stage">
               <span class="player-card-number">05</span>
-              <img src="assets/players/aitbek.png" alt="Скин Айтбека" loading="lazy">
+              <canvas class="skin-viewer" data-skin="assets/players/gytgsank.png" aria-label="Трёхмерная модель скина Гутсанга"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
             </div>
             <div class="player-profile-content">
-              <span class="player-rank">Фельдмаршал</span>
-              <h3>Айтбек</h3>
-              <p>Фельдмаршал и PvP-игрок, представляющий боевое направление Костании.</p>
-              <div class="player-tags"><span>Фельдмаршал</span><span>PvP</span><span>Боевой состав</span></div>
+              <span class="player-rank">Генерал армии</span>
+              <h3>Гутсанг</h3>
+              <p>Генерал армии Костании и представитель военного командования клана.</p>
+              <div class="player-tags"><span>Генерал армии</span><span>Командование</span><span>Боевой состав</span></div>
             </div>
           </article>
 
           <article class="player-profile-card reveal">
             <div class="player-skin-stage">
               <span class="player-card-number">06</span>
-              <img src="assets/players/avonem.png" alt="Скин Авонема" loading="lazy">
+              <canvas class="skin-viewer" data-skin="assets/players/aitbek.png" aria-label="Трёхмерная модель скина Айтбека"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
+            </div>
+            <div class="player-profile-content">
+              <span class="player-rank">Фельдмаршал</span>
+              <h3>Айтбек</h3>
+              <p>Фельдмаршал и PvP-игрок. Не относится к администрации, но занимает заметное место в боевом направлении Костании.</p>
+              <div class="player-tags"><span>Фельдмаршал</span><span>PvP</span><span>Боевой состав</span></div>
+            </div>
+          </article>
+
+          <article class="player-profile-card reveal">
+            <div class="player-skin-stage">
+              <span class="player-card-number">07</span>
+              <canvas class="skin-viewer" data-skin="assets/players/avonem.png" aria-label="Трёхмерная модель скина Авонема"></canvas>
+              <span class="skin-viewer-fallback">Загрузка 3D-модели</span>
             </div>
             <div class="player-profile-content">
               <span class="player-rank">PvP-игрок</span>
               <h3>Авонем</h3>
-              <p>PvP-игрок Костании и участник боевого направления клана.</p>
-              <div class="player-tags"><span>PvP</span><span>Боевой состав</span><span>Участник</span></div>
-            </div>
-          </article>
-
-          <article class="player-profile-card player-profile-card--archive reveal">
-            <div class="player-skin-stage">
-              <span class="player-card-number">07</span>
-              <img src="assets/players/balzikz.png" alt="Скин Балзика" loading="lazy">
-            </div>
-            <div class="player-profile-content">
-              <span class="player-rank">Участник и архивист</span>
-              <h3>Балзик</h3>
-              <p>Участник Костании и создатель цифрового архива, сохраняющего историю, людей и материалы клана.</p>
-              <div class="player-tags"><span>Архив</span><span>История</span><span>Участник</span></div>
+              <p>PvP-игрок Костании и участник боевого состава клана.</p>
+              <div class="player-tags"><span>PvP</span><span>Боевой состав</span><span>Игрок</span></div>
             </div>
           </article>
         </div>
       </section>
 
-      <p class="roster-note reveal">Это первая версия состава. Порядок, формулировки ролей и описания можно уточнять по мере наполнения архива.</p>
+      <p class="roster-note reveal">Иерархия теперь строится так: высший состав, администрация, затем военное командование и боевой состав.</p>
     </section>
   </main>
 
@@ -175,6 +200,7 @@
     <div class="footer-brand"><img src="assets/kostanya-flag.jpg" alt=""><div><strong>KOSTANYA ARCHIVE</strong><span>Люди клана.</span></div></div>
     <p>Создано для костанцев и памяти клана.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.4.1/bundles/skinview3d.bundle.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
