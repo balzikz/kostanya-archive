@@ -85,3 +85,111 @@ if ("IntersectionObserver" in window) {
     counter.textContent = counter.dataset.count;
   });
 }
+
+const loadExternalScript = (src) => new Promise((resolve, reject) => {
+  const existing = document.querySelector(`script[src="${src}"]`);
+  if (existing) {
+    if (window.skinview3d) resolve();
+    else existing.addEventListener("load", resolve, { once: true });
+    return;
+  }
+
+  const script = document.createElement("script");
+  const timeout = window.setTimeout(() => {
+    script.remove();
+    reject(new Error("script timeout"));
+  }, 9000);
+
+  script.src = src;
+  script.async = true;
+  script.onload = () => {
+    window.clearTimeout(timeout);
+    if (window.skinview3d) resolve();
+    else reject(new Error("skinview3d global missing"));
+  };
+  script.onerror = () => {
+    window.clearTimeout(timeout);
+    script.remove();
+    reject(new Error("script load failed"));
+  };
+  document.head.appendChild(script);
+});
+
+const ensureSkinView3D = async () => {
+  if (window.skinview3d) return true;
+
+  const sources = [
+    "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/bundles/skinview3d.bundle.js",
+    "https://unpkg.com/skinview3d@3.4.2/bundles/skinview3d.bundle.js"
+  ];
+
+  for (const source of sources) {
+    try {
+      await loadExternalScript(source);
+      if (window.skinview3d) return true;
+    } catch (error) {
+      console.warn("Не удалось загрузить источник skinview3d:", source, error);
+    }
+  }
+
+  return false;
+};
+
+const initSkinViewers = async () => {
+  const canvases = [...document.querySelectorAll(".skin-viewer")];
+  if (!canvases.length) return;
+
+  const libraryReady = await ensureSkinView3D();
+  if (!libraryReady) {
+    canvases.forEach((canvas) => {
+      const errorBox = canvas.parentElement?.querySelector(".skin-viewer-error");
+      if (errorBox) errorBox.textContent = "Не удалось загрузить 3D-модель";
+    });
+    return;
+  }
+
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+
+  canvases.forEach((canvas) => {
+    const stage = canvas.closest(".player-skin-stage");
+    const errorBox = stage?.querySelector(".skin-viewer-error");
+    if (!stage || canvas.dataset.initialized === "true") return;
+
+    try {
+      const viewer = new window.skinview3d.SkinViewer({
+        canvas,
+        width: Math.max(260, Math.round(stage.clientWidth)),
+        height: Math.max(300, Math.round(stage.clientHeight)),
+        skin: canvas.dataset.skin
+      });
+
+      viewer.fov = 50;
+      viewer.zoom = 0.72;
+      viewer.autoRotate = !reducedMotion;
+      viewer.autoRotateSpeed = 0.45;
+
+      if (viewer.controls) {
+        viewer.controls.enableZoom = false;
+        viewer.controls.enablePan = false;
+      }
+      if (viewer.cameraLight) viewer.cameraLight.intensity = 0.9;
+      if (viewer.globalLight) viewer.globalLight.intensity = 2.2;
+
+      canvas.dataset.initialized = "true";
+      if (errorBox) errorBox.textContent = "";
+
+      if ("ResizeObserver" in window) {
+        const resizeObserver = new ResizeObserver(() => {
+          viewer.width = Math.max(260, Math.round(stage.clientWidth));
+          viewer.height = Math.max(300, Math.round(stage.clientHeight));
+        });
+        resizeObserver.observe(stage);
+      }
+    } catch (error) {
+      console.error("Не удалось создать 3D-модель скина:", error);
+      if (errorBox) errorBox.textContent = "Ошибка отображения 3D-модели";
+    }
+  });
+};
+
+initSkinViewers();
