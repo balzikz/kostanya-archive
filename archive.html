@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171a17" />
+  <meta name="description" content="Документы, записи и материалы архива Костании." />
+  <title>Архив — Kostanya Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="archive">
+  <div class="noise"></div><div class="page-glow page-glow--green"></div><div class="page-glow page-glow--red"></div>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/kostanya-flag.jpg" alt="Флаг Костании"></span><span class="brand-text"><strong>KOSTANYA</strong><small>ARCHIVE</small></span></a><button class="menu-button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button></header>
+  <div class="menu-backdrop" data-menu-close></div>
+  <aside class="site-drawer" id="site-menu" aria-hidden="true">
+    <div class="drawer-top"><span class="drawer-label">Навигация архива</span><button class="drawer-close" type="button" aria-label="Закрыть меню" data-menu-close>×</button></div>
+    <nav class="drawer-nav">
+      <div class="drawer-group"><span>Главное</span><a href="index.html">Главная</a><a href="history.html">История</a><a href="news.html">Новости</a></div>
+      <div class="drawer-group"><span>Люди</span><a href="players.html">Игроки</a><a href="player-map.html">Карта игроков</a></div>
+      <div class="drawer-group"><span>Архив</span><a href="archive.html" data-nav="archive">Документы и записи</a><a href="gallery.html">Совместные скриншоты</a></div>
+    </nav>
+    <div class="drawer-footer"><img src="assets/kostanya-flag.jpg" alt=""><p>История продолжается.</p></div>
+  </aside>
+  <main>
+    <section class="page-hero section reveal"><p class="eyebrow">Хранилище памяти</p><h1>Архив</h1><p>Документы, хроники, списки, карты и свидетельства событий, разложенные не по человеческому принципу «где-то было в чате».</p></section>
+    <section class="section section-tight">
+      <div class="archive-grid">
+        <article class="archive-category reveal"><span class="archive-index">01</span><div><p class="eyebrow">Хроники</p><h2>Записи событий</h2><p>Датированные описания войн, союзов, реформ и внутренних решений.</p></div><span class="archive-state">Готовится</span></article>
+        <article class="archive-category reveal"><span class="archive-index">02</span><div><p class="eyebrow">Документы</p><h2>Правила и списки</h2><p>Старые составы, уставы, дипломатические записи и версии внутренних правил.</p></div><span class="archive-state">Готовится</span></article>
+        <article class="archive-category archive-category--red reveal"><span class="archive-index">03</span><div><p class="eyebrow">Конфликты</p><h2>Военные архивы</h2><p>Участники, причины, ход событий, результаты и сохранившиеся материалы.</p></div><span class="archive-state">Готовится</span></article>
+        <article class="archive-category reveal"><span class="archive-index">04</span><div><p class="eyebrow">География</p><h2>Карты и территории</h2><p>Базы, поселения, зоны влияния и изменения пространства клана.</p></div><span class="archive-state">Готовится</span></article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand"><img src="assets/kostanya-flag.jpg" alt=""><div><strong>KOSTANYA ARCHIVE</strong><span>Хранилище памяти.</span></div></div><p>Создано для костанцев и памяти клана.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
