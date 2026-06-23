@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171a17" />
+  <meta name="description" content="Новости сайта и клана Костания." />
+  <title>Новости — Kostanya Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="news">
+  <div class="noise"></div><div class="page-glow page-glow--green"></div><div class="page-glow page-glow--red"></div>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/kostanya-flag.jpg" alt="Флаг Костании"></span><span class="brand-text"><strong>KOSTANYA</strong><small>ARCHIVE</small></span></a><button class="menu-button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button></header>
+  <div class="menu-backdrop" data-menu-close></div>
+  <aside class="site-drawer" id="site-menu" aria-hidden="true">
+    <div class="drawer-top"><span class="drawer-label">Навигация архива</span><button class="drawer-close" type="button" aria-label="Закрыть меню" data-menu-close>×</button></div>
+    <nav class="drawer-nav">
+      <div class="drawer-group"><span>Главное</span><a href="index.html">Главная</a><a href="history.html">История</a><a href="news.html" data-nav="news">Новости</a></div>
+      <div class="drawer-group"><span>Люди</span><a href="players.html">Игроки</a><a href="player-map.html">Карта игроков</a></div>
+      <div class="drawer-group"><span>Архив</span><a href="archive.html">Документы и записи</a><a href="gallery.html">Совместные скриншоты</a></div>
+    </nav>
+    <div class="drawer-footer"><img src="assets/kostanya-flag.jpg" alt=""><p>История продолжается.</p></div>
+  </aside>
+  <main>
+    <section class="page-hero section reveal"><p class="eyebrow">Последние записи</p><h1>Новости</h1><p>Обновления сайта, изменения состава, новые материалы и важные события Костании.</p></section>
+    <section class="section section-tight">
+      <div class="news-list">
+        <article class="news-item reveal"><time datetime="2026-06-23">23.06.2026</time><div><span class="tag tag--green">Сайт</span><h3>Архив получил отдельные разделы</h3><p>Игроки, карта связей, документы и совместные скриншоты вынесены на собственные страницы.</p></div><span class="news-arrow">↗</span></article>
+        <article class="news-item reveal"><time datetime="2026-06-23">23.06.2026</time><div><span class="tag tag--dark">Интерфейс</span><h3>Добавлено полноэкранное меню</h3><p>Основная навигация теперь открывается через кнопку с тремя полосами.</p></div><span class="news-arrow">↗</span></article>
+        <article class="news-item reveal"><time datetime="2026-06-23">23.06.2026</time><div><span class="tag tag--red">Архив</span><h3>Начинается сбор скинов игроков</h3><p>После загрузки PNG-файлов появятся первые настоящие карточки участников.</p></div><span class="news-arrow">↗</span></article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand"><img src="assets/kostanya-flag.jpg" alt=""><div><strong>KOSTANYA ARCHIVE</strong><span>Последние записи.</span></div></div><p>Создано для костанцев и памяти клана.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
