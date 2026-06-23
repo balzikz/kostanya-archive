@@ -11,278 +11,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-
-<body>
+<body data-page="home">
   <div class="noise"></div>
   <div class="page-glow page-glow--green"></div>
   <div class="page-glow page-glow--red"></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Костания — на главную">
-      <span class="brand-mark">
-        <img src="assets/kostanya-flag.jpg" alt="Флаг Костании">
-      </span>
-      <span class="brand-text">
-        <strong>KOSTANYA</strong>
-        <small>ARCHIVE</small>
-      </span>
+    <a class="brand" href="index.html" aria-label="Костания — на главную">
+      <span class="brand-mark"><img src="assets/kostanya-flag.jpg" alt="Флаг Костании"></span>
+      <span class="brand-text"><strong>KOSTANYA</strong><small>ARCHIVE</small></span>
     </a>
-
-    <button class="menu-button" aria-label="Открыть меню" aria-expanded="false">
+    <button class="menu-button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
       <span></span><span></span><span></span>
     </button>
-
-    <nav class="main-nav" aria-label="Главная навигация">
-      <a href="#history">История</a>
-      <a href="#players">Игроки</a>
-      <a href="#archive">Архив</a>
-      <a href="#news">Новости</a>
-    </nav>
   </header>
+
+  <div class="menu-backdrop" data-menu-close></div>
+  <aside class="site-drawer" id="site-menu" aria-hidden="true">
+    <div class="drawer-top">
+      <span class="drawer-label">Навигация архива</span>
+      <button class="drawer-close" type="button" aria-label="Закрыть меню" data-menu-close>×</button>
+    </div>
+    <nav class="drawer-nav">
+      <div class="drawer-group"><span>Главное</span><a href="index.html" data-nav="home">Главная</a><a href="history.html">История</a><a href="news.html">Новости</a></div>
+      <div class="drawer-group"><span>Люди</span><a href="players.html">Игроки</a><a href="player-map.html">Карта игроков</a></div>
+      <div class="drawer-group"><span>Архив</span><a href="archive.html">Документы и записи</a><a href="gallery.html">Совместные скриншоты</a></div>
+    </nav>
+    <div class="drawer-footer"><img src="assets/kostanya-flag.jpg" alt=""><p>История продолжается.</p></div>
+  </aside>
 
   <main id="top">
     <section class="hero section">
       <div class="hero-copy reveal">
         <p class="eyebrow">Основано в сентябре 2023</p>
-        <h1>
-          История,
-          <span>выкованная в кубах.</span>
-        </h1>
-        <p class="hero-text">
-          Цифровой музей Костании: люди, эпохи, конфликты, союзы,
-          архивные записи и всё, что превратило обычный клан в собственную историю.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button--green" href="#history">Открыть летопись</a>
-          <a class="button button--ghost" href="#players">Смотреть игроков</a>
-        </div>
-
+        <h1>История,<span>выкованная в кубах.</span></h1>
+        <p class="hero-text">Цифровой музей Костании: люди, эпохи, конфликты, союзы и всё, что превратило обычный клан в собственную историю.</p>
+        <div class="hero-actions"><a class="button button--green" href="history.html">Открыть летопись</a><button class="button button--ghost" type="button" data-menu-open>Все разделы</button></div>
         <div class="hero-stats">
-          <article>
-            <strong data-count="2023">0</strong>
-            <span>год основания</span>
-          </article>
-          <article>
-            <strong data-count="3">0</strong>
-            <span>года истории</span>
-          </article>
-          <article>
-            <strong data-count="1">0</strong>
-            <span>единый архив</span>
-          </article>
+          <article><strong data-count="2023">0</strong><span>год основания</span></article>
+          <article><strong data-count="3">0</strong><span>года истории</span></article>
+          <article><strong data-count="1">0</strong><span>единый архив</span></article>
         </div>
       </div>
-
       <div class="hero-visual reveal">
-        <div class="flag-frame">
-          <div class="flag-frame__shine"></div>
-          <img src="assets/kostanya-flag.jpg" alt="Основной флаг Костании">
-          <div class="flag-caption">
-            <span>ОСНОВНОЙ ФЛАГ</span>
-            <strong>KOSTANYA</strong>
-          </div>
-        </div>
+        <div class="flag-frame"><div class="flag-frame__shine"></div><img src="assets/kostanya-flag.jpg" alt="Основной флаг Костании"><div class="flag-caption"><span>ОСНОВНОЙ ФЛАГ</span><strong>KOSTANYA</strong></div></div>
       </div>
     </section>
 
     <section class="manifesto section">
-      <div class="manifesto-card reveal">
-        <span class="manifesto-number">01</span>
-        <div>
-          <p class="eyebrow">Зачем существует архив</p>
-          <h2>Чтобы история не исчезала вместе с чатами.</h2>
-          <p>
-            Кланы распадаются, серверы закрываются, сообщения теряются,
-            а потом кто-нибудь пытается вспомнить, кто с кем воевал в ноябре.
-            Здесь всё будет собрано, проверено и сохранено.
-          </p>
-        </div>
+      <div class="manifesto-card reveal"><span class="manifesto-number">01</span><div><p class="eyebrow">Зачем существует архив</p><h2>Чтобы история не исчезала вместе с чатами.</h2><p>Кланы меняются, серверы закрываются, сообщения теряются, а потом кто-нибудь пытается вспомнить, кто с кем воевал в ноябре. Здесь всё будет собрано, проверено и сохранено.</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading reveal"><div><p class="eyebrow">Разделы</p><h2>Весь архив</h2></div><p>Главная теперь остаётся атмосферной витриной, а большие массивы информации живут на отдельных страницах. Цивилизация победила свалку.</p></div>
+      <div class="portal-grid">
+        <a class="portal-card portal-card--large reveal" href="history.html"><span class="portal-index">01</span><div><p class="eyebrow">Летопись</p><h3>История Костании</h3><p>Эпохи, события, войны, переломные моменты и эволюция клана.</p></div><span class="portal-arrow">↗</span></a>
+        <a class="portal-card reveal" href="players.html"><span class="portal-index">02</span><div><p class="eyebrow">Люди</p><h3>Игроки</h3><p>Состав, биографии, скины и роли.</p></div><span class="portal-arrow">↗</span></a>
+        <a class="portal-card reveal" href="player-map.html"><span class="portal-index">03</span><div><p class="eyebrow">Связи</p><h3>Карта игроков</h3><p>Союзы, команды и конфликты.</p></div><span class="portal-arrow">↗</span></a>
+        <a class="portal-card portal-card--red reveal" href="archive.html"><span class="portal-index">04</span><div><p class="eyebrow">Хранилище</p><h3>Документы</h3><p>Записи, карты, списки и хроники.</p></div><span class="portal-arrow">↗</span></a>
+        <a class="portal-card reveal" href="gallery.html"><span class="portal-index">05</span><div><p class="eyebrow">Галерея</p><h3>Скриншоты</h3><p>Совместные кадры и визуальная память.</p></div><span class="portal-arrow">↗</span></a>
       </div>
     </section>
 
-    <section id="history" class="section">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">Летопись</p>
-          <h2>Эпохи Костании</h2>
-        </div>
-        <p>
-          Пока это демонстрационная структура. Реальные события мы постепенно
-          заменим точными датами, участниками и источниками.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <span class="timeline-year">2023</span>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="tag tag--green">Основание</span>
-            <h3>Рождение Костании</h3>
-            <p>Дарын создаёт клан для совместной игры, политики и PvP-конфликтов.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span class="timeline-year">2024</span>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="tag tag--red">Войны</span>
-            <h3>Первые крупные конфликты</h3>
-            <p>Костания формирует характер, связи, противников и собственные правила.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span class="timeline-year">2025</span>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="tag tag--dark">Перемены</span>
-            <h3>Кризисы и перестройка</h3>
-            <p>Меняются участники, роли и внутренняя структура клана.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span class="timeline-year">2026</span>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="tag tag--green">Настоящее</span>
-            <h3>Костания продолжается</h3>
-            <p>Клан сохраняет активных участников, память и связь между эпохами.</p>
-          </div>
-        </article>
+    <section class="section section-tight">
+      <div class="section-heading reveal"><div><p class="eyebrow">Краткая линия</p><h2>Эпохи Костании</h2></div><a class="text-link" href="history.html">Полная история ↗</a></div>
+      <div class="era-strip">
+        <article class="era-card reveal"><span>2023</span><strong>Основание</strong><p>Создание клана Дарыном.</p></article>
+        <article class="era-card era-card--red reveal"><span>2024</span><strong>Формирование</strong><p>Первые крупные конфликты и союзы.</p></article>
+        <article class="era-card reveal"><span>2025</span><strong>Перестройка</strong><p>Изменение состава и структуры.</p></article>
+        <article class="era-card reveal"><span>2026</span><strong>Архив</strong><p>Сохранение истории в единой системе.</p></article>
       </div>
     </section>
 
-    <section id="players" class="section">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">Люди</p>
-          <h2>Игроки Костании</h2>
-        </div>
-        <p>Карточки потом получат настоящие скины, роли, биографии и достижения.</p>
-      </div>
-
-      <div class="players-grid">
-        <article class="player-card player-card--featured reveal">
-          <div class="player-avatar">
-            <span>D</span>
-          </div>
-          <div class="player-status">Основатель</div>
-          <h3>Дарын</h3>
-          <p>Создатель Костании и центральная фигура её ранней истории.</p>
-          <div class="player-meta">
-            <span>2023 — настоящее время</span>
-            <span>Лидерство</span>
-          </div>
-        </article>
-
-        <article class="player-card reveal">
-          <div class="player-avatar player-avatar--green">
-            <span>?</span>
-          </div>
-          <div class="player-status">Активный игрок</div>
-          <h3>Следующий профиль</h3>
-          <p>Здесь появится имя, скин, роль, вклад и история участника.</p>
-          <div class="player-meta">
-            <span>Дата вступления</span>
-            <span>Роль</span>
-          </div>
-        </article>
-
-        <article class="player-card reveal">
-          <div class="player-avatar player-avatar--red">
-            <span>?</span>
-          </div>
-          <div class="player-status player-status--red">Бывший игрок</div>
-          <h3>Историческая фигура</h3>
-          <p>Отдельный тип карточек для тех, кто уже покинул клан.</p>
-          <div class="player-meta">
-            <span>Период активности</span>
-            <span>Наследие</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="archive" class="section archive-section">
-      <div class="archive-panel reveal">
-        <div class="archive-copy">
-          <p class="eyebrow">Хранилище</p>
-          <h2>Архив Костании</h2>
-          <p>
-            Скриншоты, хроники, документы, старые списки, дипломатические записи,
-            карты и свидетельства событий.
-          </p>
-          <a class="button button--green" href="#news">Посмотреть обновления</a>
-        </div>
-
-        <div class="archive-folders">
-          <div class="folder">
-            <span>01</span>
-            <strong>Скриншоты</strong>
-          </div>
-          <div class="folder">
-            <span>02</span>
-            <strong>Документы</strong>
-          </div>
-          <div class="folder folder--red">
-            <span>03</span>
-            <strong>Конфликты</strong>
-          </div>
-          <div class="folder">
-            <span>04</span>
-            <strong>Карты</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="news" class="section">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">Последние записи</p>
-          <h2>Новости архива</h2>
-        </div>
-      </div>
-
+    <section class="section section-tight">
+      <div class="section-heading reveal"><div><p class="eyebrow">Последние записи</p><h2>Новости</h2></div><a class="text-link" href="news.html">Все новости ↗</a></div>
       <div class="news-list">
-        <article class="news-item reveal">
-          <time datetime="2026-06-23">23.06.2026</time>
-          <div>
-            <span class="tag tag--green">Сайт</span>
-            <h3>Началась разработка цифрового архива Костании</h3>
-            <p>Создан первый дизайн главной страницы в стиле основного флага.</p>
-          </div>
-          <span class="news-arrow">↗</span>
-        </article>
-
-        <article class="news-item reveal">
-          <time datetime="2026-06-23">23.06.2026</time>
-          <div>
-            <span class="tag tag--dark">Архив</span>
-            <h3>Формируется структура истории и профилей игроков</h3>
-            <p>Следующий этап: реальные участники, эпохи и события.</p>
-          </div>
-          <span class="news-arrow">↗</span>
-        </article>
+        <article class="news-item reveal"><time datetime="2026-06-23">23.06.2026</time><div><span class="tag tag--green">Сайт</span><h3>Архив получил отдельные разделы</h3><p>Игроки, карта связей, документы и галерея вынесены на собственные страницы.</p></div><span class="news-arrow">↗</span></article>
+        <article class="news-item reveal"><time datetime="2026-06-23">23.06.2026</time><div><span class="tag tag--dark">Следующий этап</span><h3>Начинается сбор скинов игроков</h3><p>После загрузки PNG-файлов появятся первые настоящие профили.</p></div><span class="news-arrow">↗</span></article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-brand">
-      <img src="assets/kostanya-flag.jpg" alt="">
-      <div>
-        <strong>KOSTANYA ARCHIVE</strong>
-        <span>История продолжается.</span>
-      </div>
-    </div>
-    <p>Создано для костанцев и памяти клана.</p>
-  </footer>
-
+  <footer class="site-footer"><div class="footer-brand"><img src="assets/kostanya-flag.jpg" alt=""><div><strong>KOSTANYA ARCHIVE</strong><span>История продолжается.</span></div></div><p>Создано для костанцев и памяти клана.</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
