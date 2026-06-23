@@ -1,21 +1,38 @@
 document.documentElement.classList.add("motion-ready");
 
+// Подключаем стили второй версии ко всем страницам из одного места.
+if (!document.querySelector('link[href="v2.css"]')) {
+  const v2Styles = document.createElement("link");
+  v2Styles.rel = "stylesheet";
+  v2Styles.href = "v2.css";
+  document.head.appendChild(v2Styles);
+}
+
+const body = document.body;
 const menuButton = document.querySelector(".menu-button");
-const mainNav = document.querySelector(".main-nav");
+const drawer = document.querySelector(".site-drawer");
+const menuOpenButtons = document.querySelectorAll("[data-menu-open]");
+const menuCloseButtons = document.querySelectorAll("[data-menu-close]");
 
-menuButton?.addEventListener("click", () => {
-  const isOpen = mainNav?.classList.toggle("open") ?? false;
-  document.body.classList.toggle("menu-open", isOpen);
-  menuButton.setAttribute("aria-expanded", String(isOpen));
+const setMenu = (isOpen) => {
+  body.classList.toggle("menu-open", isOpen);
+  menuButton?.setAttribute("aria-expanded", String(isOpen));
+  drawer?.setAttribute("aria-hidden", String(!isOpen));
+};
+
+menuButton?.addEventListener("click", () => setMenu(!body.classList.contains("menu-open")));
+menuOpenButtons.forEach((button) => button.addEventListener("click", () => setMenu(true)));
+menuCloseButtons.forEach((button) => button.addEventListener("click", () => setMenu(false)));
+drawer?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMenu(false);
 });
 
-mainNav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("open");
-    document.body.classList.remove("menu-open");
-    menuButton?.setAttribute("aria-expanded", "false");
-  });
-});
+const currentPage = body.dataset.page;
+if (currentPage) {
+  document.querySelector(`[data-nav="${currentPage}"]`)?.classList.add("active");
+}
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
@@ -52,7 +69,6 @@ if ("IntersectionObserver" in window) {
           const progress = Math.min((time - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
           element.textContent = Math.round(target * eased);
-
           if (progress < 1) requestAnimationFrame(animate);
         };
 
