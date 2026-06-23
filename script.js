@@ -85,3 +85,83 @@ if ("IntersectionObserver" in window) {
     counter.textContent = counter.dataset.count;
   });
 }
+
+// Интерактивные 3D-модели Minecraft-скинов.
+const skinCanvases = document.querySelectorAll(".skin-viewer");
+const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+
+const createSkinViewer = (canvas) => {
+  if (canvas.dataset.initialized === "true") return;
+
+  const stage = canvas.closest(".player-skin-stage");
+  if (!stage || !window.skinview3d) {
+    stage?.classList.add("viewer-error");
+    const fallback = stage?.querySelector(".skin-viewer-fallback");
+    if (fallback) fallback.textContent = "3D-модель недоступна";
+    return;
+  }
+
+  try {
+    const getSize = () => ({
+      width: Math.max(240, Math.round(stage.clientWidth)),
+      height: Math.max(280, Math.round(stage.clientHeight))
+    });
+
+    const size = getSize();
+    const viewer = new window.skinview3d.SkinViewer({
+      canvas,
+      width: size.width,
+      height: size.height,
+      skin: canvas.dataset.skin
+    });
+
+    viewer.fov = 48;
+    viewer.zoom = 0.78;
+    viewer.autoRotate = !reducedMotion;
+    viewer.autoRotateSpeed = 0.45;
+
+    if (viewer.controls) {
+      viewer.controls.enableZoom = false;
+      viewer.controls.enablePan = false;
+    }
+
+    if (viewer.cameraLight) viewer.cameraLight.intensity = 0.9;
+    if (viewer.globalLight) viewer.globalLight.intensity = 2.2;
+
+    canvas.dataset.initialized = "true";
+    stage.classList.add("viewer-ready");
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        const nextSize = getSize();
+        viewer.width = nextSize.width;
+        viewer.height = nextSize.height;
+      });
+      resizeObserver.observe(stage);
+    }
+  } catch (error) {
+    console.error("Не удалось создать 3D-модель скина:", error);
+    stage.classList.add("viewer-error");
+    const fallback = stage.querySelector(".skin-viewer-fallback");
+    if (fallback) fallback.textContent = "Ошибка загрузки 3D-модели";
+  }
+};
+
+if (skinCanvases.length) {
+  if ("IntersectionObserver" in window) {
+    const skinObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          createSkinViewer(entry.target);
+          skinObserver.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "240px 0px", threshold: 0.01 }
+    );
+
+    skinCanvases.forEach((canvas) => skinObserver.observe(canvas));
+  } else {
+    skinCanvases.forEach(createSkinViewer);
+  }
+}
